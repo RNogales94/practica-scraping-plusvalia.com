@@ -3,9 +3,11 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from telegram_bot import TelegramBot
+
 chrome_driver = webdriver.Chrome()
 
-# bot = TelegramBot()
+bot = TelegramBot()
 # db = Mongo()
 
 
@@ -26,6 +28,10 @@ for t in topics:
 
     content = chrome_driver.find_element(By.ID, "mw-content-text")
     print(content.text)
+    text = content.text
+    text = text.lower()
+
+    bot.send_tg_message(text)
 
     # enviar por telegram
     # bot.send(content.text, chat_id)
