@@ -5,7 +5,7 @@ import os
 load_dotenv()
 
 
-class Telegram:
+class TelegramBot:
     def __init__(self):
         self.token = os.getenv("BOT_TOKEN")
         self.admin_tg_user_id = os.getenv("ADMIN_USER_ID")
